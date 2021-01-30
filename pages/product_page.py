@@ -34,7 +34,7 @@ class ProductPage(BasePage):
             alert.accept()
         except NoAlertPresentException:
             print("No second alert presented")
-        time.sleep(7)
+        time.sleep(4)
 
     def selected_product_added_to_basket(self):
         selected_product_name = self.browser.find_element(*ProductPageLocators.SELECTED_PRODUCT_NAME)
@@ -45,3 +45,11 @@ class ProductPage(BasePage):
         selected_product_price = self.browser.find_element(*ProductPageLocators.SELECTED_PRODUCT_PRICE)
         added_product_price = self.browser.find_element(*ProductPageLocators.ADDED_PRODUCT_PRICE)
         assert added_product_price.text == selected_product_price.text, "Стоимость корзины НЕ совпадает со стоимостью выбранного товара"
+
+    def should_not_be_success_message(self):
+        assert self.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGE), \
+            "Success message is presented, but should not be"
+
+    def success_message_should_be_disappeared(self):
+        assert self.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGE), \
+            "Success message is not disappeared, but should be"
