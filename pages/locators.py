@@ -13,3 +13,8 @@ class ProductPageLocators():
 
 class BasePageLocators():
     LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
+    BASKET_LINK = (By.CSS_SELECTOR, ".btn-group .btn-default")
+
+class BasketPageLocators():
+    PRODUCTS_IN_BASKET = (By.CSS_SELECTOR, "#content_inner .col-sm-6")
+    MESSAGE_BASKET_IS_EMPTY = (By.CSS_SELECTOR, "#content_inner > p > a")
