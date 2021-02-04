@@ -10,6 +10,7 @@ class ProductPage(BasePage):
     def add_product_to_basket(self):
         self.should_be_add_to_basket_button()
         self.click_add_to_basket_button()
+        self.solve_quiz_and_get_code()
         self.selected_product_added_to_basket()
         self.basket_price_should_be_selected_product_price()
 
